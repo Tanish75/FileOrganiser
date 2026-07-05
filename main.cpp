@@ -166,7 +166,13 @@ void organizeFiles(const std::vector<FileInfo>& files, const std::string& folder
 // -----------------------------------------------------------------------------
 int main() {
     // ⚠️ IMPORTANT: Change this to the folder you want to organize!
-    std::string folderPath = "C:\\Users\\rajke\\Downloads\\TestFolder";
+    std::string folderPath;
+    std::cout << "Enter folder path (or press Enter for default): ";
+    std::getline(std::cin, folderPath);
+
+    if (folderPath.empty()) {
+    folderPath = "C:\\Users\\rajke\\Downloads\\TestFolder";  // Default
+    }
     
     // PHASE 1: SCAN
     std::vector<FileInfo> files = scanDirectory(folderPath);
